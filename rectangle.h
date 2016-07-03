@@ -19,6 +19,7 @@ class rectangle : public shape
 	   |sw|---- s ---- se
 		*/
 		point sw, ne;
+		static char color;
 
 	public:
 
@@ -36,30 +37,10 @@ class rectangle : public shape
 		void draw();
 
 		rectangle(point, point);
+		rectangle(point, point, char);
 };
 
-class tringle: public shape
-{
-	/*
-	nw ---- n ---- |ne|
-	|               |
-	|               |
-	w       m       e
-	|               |
-	|               |
-   |sw|---- s ---- se
-	*/
-	point n, w, e;
 
-
-public:
-	point north() { return n; }
-	point west()  { return w; }
-	point east()  { return e; }
-	tringle(point, point, point);
-	void draw();
-
-};
 
 class MyClass: public  rectangle
 {

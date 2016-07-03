@@ -1,9 +1,34 @@
 #include "shape.h"
 #include "screen.h"
+#include <math.h>
 
 //shape_lst shape_list;
 
 rectangle::rectangle(point a, point b) {
+	if (a.x <= b.x) {
+		if (a.y <= b.y) {
+			sw = a;
+			ne = b;
+		}
+		else {
+			sw = point(a.x, b.y);
+			ne = point(b.x, a.y);
+		}
+	}
+	else {
+		if (a.y <= b.y) {
+			sw = point(b.x, a.y);
+			ne = point(a.x, b.y);
+		}
+		else {
+			sw = b;
+			ne = a;
+		}
+	}
+}
+
+rectangle::rectangle(point a, point b, char _color) {
+	this->color = _color;
 	if (a.x <= b.x) {
 		if (a.y <= b.y) {
 			sw = a;
@@ -34,7 +59,47 @@ tringle::tringle(point t1, point t2, point t3)
 
 }
 
+ellipse::ellipse(double r1 , double r2, point _sw)
+{
 
+	a = r1;
+	b = r2;
+	pos = new rectangle(point(_sw.x - a, _sw.y - a), point(_sw.x + a, _sw.y + a), '*');
+
+	for (double rad = 0; rad < 2*M_PI; rad += 0.1*M_PI) {
+		double x = a * cos(rad) + _sw.x;
+		double y = a * sin(rad) + _sw.y;
+		ni.push_back(point(x, y));
+
+	}
+
+}
+
+void ellipse::draw()
+{
+	point begin = ni.back();
+	ni.pop_back();
+	point end = begin;
+	//point tmp;
+	//while(!ni.empty()) {
+	//	tmp = ni.back();
+	//	put_line(end, tmp);
+	//	
+	//	end = tmp;
+	//	ni.pop_back();
+	//}
+
+	for (auto i : ni) {
+		put_line(end, i);
+		end = i;
+	}
+
+	put_line(end, begin);
+
+}
+
+
+char rectangle::color = '+';
 void rectangle::draw()
 {
 	/*
@@ -48,10 +113,10 @@ void rectangle::draw()
 	*/
     point nw(sw.x, ne.y);
     point se(ne.x, sw.y);
-    put_line(nw,ne);
-    put_line(ne,se);
-    put_line(se,sw);
-    put_line(sw,nw);
+    put_line(nw,ne, color);
+    put_line(ne,se, color);
+    put_line(se,sw, color);
+    put_line(sw,nw, color);
 }
 
 void tringle::draw()
