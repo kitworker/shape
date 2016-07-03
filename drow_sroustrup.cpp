@@ -11,3 +11,5 @@
 //
 //git remote add origin git@github.com:kitworker/draw_shape_stroustrup.git
 //git push -u origin master
+// test pull
+
