@@ -26,107 +26,9 @@ N maxt(N x, N y)
 	return a;
 }
 
-template <class C>
-class ArrayMy {
-public:
-	ArrayMy(C);
-
-};
-
-template<typename T>
-ArrayMy<T>::ArrayMy(T){
-
-}
-
-
-class wgtT {
-
-public:
-	int ABNx;
-	//template<class C>
-	class UserPar {
-		UserPar *x11;
-	public:
-		UserPar(/*int &_x*/){
-			//_x = 10;
-			//x11 = new UserPar();
-		}
-
-	};
-
-
-	//template<class D>
-	UserPar * Par;
-
-	wgtT (int *x)
-	{
-		Par = new UserPar();
-	//	UserPar * Par = new UserPar(x);
-	}
-
-
-
-};
-
-
-
-//wgtT UserWgt [] = {
-//		{	10, new UserWgt.
-//};
-
-//class userType{
-//	int ABN;
-//	int *wgt;
-//};
-//wgtT<int> mywgtT;
-//wgtT<userType> myArrUserT;
-//
-//template <class T>
-//struct arrWgtsTs{
-//	wgtT<T> inarrWgt[];
-//};
-
-//arrWgtsTs<int> myArrWgtsTs;
-
-template <class T>
-class UserPar {
-	int _x;
-public:
-	UserPar<T> *x11;
-	UserPar( T  &_x){
-		_x = 10;
-		//x11 = new UserPar();
-	}
-
-
-
-};
-
-template<typename T>
-class array{
-public:
-    array();
-    array(const array<T>& );
-
-    ~array();
-private:
-    T arr[10];
-};
 
 
 int main() {
-
-	int x = 10;
-	//UserPar<int> *x10 = new UserPar<int>::UserPar(&x);
-
-	array<int> *up ;
-
-	wgtT* A= new wgtT(&x);
-	wgtT::UserPar * B = A->Par;
-
-//	 wgtT::UserPar<int> *P = new  wgtT::UserPar<int>(&x);
-	//>Par = new wgtT::UserPar<int>(&x);
-	//A->UserPar<int>::Par(10);
 	string str("string_my");
 
 	screen_init();
@@ -139,11 +41,14 @@ int main() {
 	//auto_ptr_ref<string> str1 (new string("str") );
 
 	
-	shape* p3 = new rectangle(point(0, 0), point(5, 10));
-	shape* t3 = new tringle(point(0, 0), point(15, 10),point(0, 15));
 	
-	stack(t3, p3);
+//	shape* t3 = new tringle(point(0, 0), point(15, 10),point(0, 15));
 
+//	shape* el = new ellipse(20, 20);
+	shape* el1 = new ellipse(8, 10, point(20, 20) );
+	shape* p3 = new rectangle(point(0, 0), point(5, 10), ' ');
+	//stack(t3, p3);
+	stack(p3, el1);
 	shape_refresh();
 //	while (true)
 //	{

@@ -22,6 +22,11 @@ void put_point(int a, int b)
     if (on_screen(a,b)) screen[a][b] = black;
 }
 
+void put_point(int a, int b, char color)
+{
+	if (on_screen(a, b)) screen[a][b] = color;
+}
+
 void screen_clear()
 {
      screen_init();

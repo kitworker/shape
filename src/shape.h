@@ -59,6 +59,7 @@ extern void stackWE(shape*, shape*);
 #else
 # include "line.h"
 # include "rectangle.h"
+# include "trangle.h"
 #endif
 
 #endif
