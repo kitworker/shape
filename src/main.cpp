@@ -42,11 +42,14 @@ int main() {
 
 	
 	
-//	shape* t3 = new tringle(point(0, 0), point(15, 10),point(0, 15));
+	shape* ttr = new tringle(point(0, 0), point(15, 10),point(0, 15));
 
 //	shape* el = new ellipse(20, 20);
+
+	shape* p3 = new rectangle(point(0, 0), point(5, 10), 'k');
+
 	shape* el1 = new ellipse(8, 10, point(20, 20) );
-	shape* p3 = new rectangle(point(0, 0), point(5, 10), ' ');
+
 	//stack(t3, p3);
 	stack(p3, el1);
 	shape_refresh();

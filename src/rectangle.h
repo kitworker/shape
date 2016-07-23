@@ -19,7 +19,7 @@ class rectangle : public shape
 	   |sw|---- s ---- se
 		*/
 		point sw, ne;
-		static char color;
+		 char color;
 
 	public:
 

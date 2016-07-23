@@ -107,7 +107,7 @@ void ellipse::draw()
 }
 
 
-char rectangle::color = '+';
+//char rectangle::color = '+';
 void rectangle::draw()
 {
 	/*
